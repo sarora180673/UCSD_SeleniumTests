@@ -93,14 +93,14 @@ public class Cat_AdvancedLegalEducation {
 		String ExpectedCourse[] = new String[20];
 		
 		ExpectedCourse[1] = "Applying E-Discovery and Litigation Technology (LAW-40069)";
-	//	ExpectedCourse[2] = "CLA/CP (Certified Paralegal) Exam Preparation and Review (LAW-40042)";
-		ExpectedCourse[2] = "CLA/CP Testing Center Fee (LAW-70000)";
-		//ExpectedCourse[4] = "Legal Education Information Session (INFO-70000)";
-		ExpectedCourse[3] = "LSAT: Law School Admissions Test Prep Sessions (EDUC-90010)";
+		ExpectedCourse[2] = "CLA/CP (Certified Paralegal) Exam Preparation and Review (LAW-40042)";
+		ExpectedCourse[3] = "CLA/CP Testing Center Fee (LAW-70000)";
+		ExpectedCourse[4] = "Legal Education Information Session (INFO-70000)";
+		ExpectedCourse[5] = "LSAT: Law School Admissions Test Prep Sessions (EDUC-90010)";
 	//	ExpectedCourse[6] = "MCLE - Technology Licensing Workshop (LAW-80004)";
-		ExpectedCourse[4] = "Understanding E-Discovery and Litigation Technology (LAW-40068)";
+		ExpectedCourse[6] = "Understanding E-Discovery and Litigation Technology (LAW-40068)";
 				
-		for(int i=1; i<5; i++){
+		for(int i=1; i<7; i++){
 			Course[i] = driver.findElement(By.xpath("html/body/form/main/section[3]/div/div/div/div/div[1]/div[2]/ul[2]/li[" + i + "]/a/div/h4")).getText();
 			System.out.println("Course -" + i + " : " + Course[i]);
 			}
@@ -112,17 +112,17 @@ public class Cat_AdvancedLegalEducation {
 		String CourseURL[] = new String[20];
 		 String ExpectedCourseURL[] = new String[20];
 			
-			ExpectedCourseURL[1] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/applying-e-discovery-and-litigation-technology";
-		//	ExpectedCourseURL[2] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/cla-exam-prep-review";
-			ExpectedCourseURL[2] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/cla-cp-testing-center-fee";
-			//ExpectedCourseURL[4] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/legal-education-information-session";
-			ExpectedCourseURL[3] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/lsat-law-school-admissions-test-prep-sessions";
-			//ExpectedCourseURL[6] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/mcle-technology-licensing-workshop";
-			ExpectedCourseURL[4] = "http://cmsdevmerge.ucsd.edu/courses-and-programs/understanding-e-discovery-and-litigation-technology";
+			ExpectedCourseURL[1] = "https://extension.ucsd.edu/courses-and-programs/applying-e-discovery-and-litigation-technology";
+			ExpectedCourseURL[2] = "https://extension.ucsd.edu/courses-and-programs/cla-exam-prep-review";
+			ExpectedCourseURL[3] = "https://extension.ucsd.edu/courses-and-programs/cla-cp-testing-center-fee";
+			ExpectedCourseURL[4] = "https://extension.ucsd.edu/courses-and-programs/legal-education-information-session";
+			ExpectedCourseURL[5] = "https://extension.ucsd.edu/courses-and-programs/lsat-law-school-admissions-test-prep-sessions";
+			//ExpectedCourseURL[6] = "https://extension.ucsd.edu/courses-and-programs/mcle-technology-licensing-workshop";
+			ExpectedCourseURL[6] = "https://extension.ucsd.edu/courses-and-programs/understanding-e-discovery-and-litigation-technology";
 			
-			for(int i=1; i<5; i++){
+			for(int i=1; i<7; i++){
 				CourseURL[i] = driver.findElement(By.xpath("html/body/form/main/section[3]/div/div/div/div/div[1]/div[2]/ul[2]/li[" + i + "]/a")).getAttribute("href");
-				System.out.println("CategoryURL -" + i + " : " + CourseURL[i]);
+				System.out.println("CourseURL -" + i + " : " + CourseURL[i]);
 				}
 			Assert.assertEquals(CourseURL, ExpectedCourseURL);
 	}				
