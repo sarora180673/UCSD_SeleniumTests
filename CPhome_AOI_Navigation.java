@@ -141,7 +141,7 @@ public class CPhome_AOI_Navigation {
 		  SubMenu.click();
 		 
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/Sites/International-Programs/Home";
+		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/international-programs/home";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }	
 
