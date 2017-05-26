@@ -96,7 +96,7 @@ public class HomePage_Navigation {
     public void IP_Nav() {
 	  driver.findElement(By.xpath("html/body/form/main/div[1]/div/div[2]/a")).click();
 	  String CurrentURL = driver.getCurrentUrl();
-	  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/Sites/International-Programs/Home";
+	  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/international-programs/home";
 	  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
   }
  
