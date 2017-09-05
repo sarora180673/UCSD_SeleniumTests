@@ -57,10 +57,10 @@ public class HomePage {
 	  Assert.assertEquals(IPctaText, expectedCPctaText);
   }
   
-  @Parameters("baseUrl")
+  @Parameters({"baseUrl", "driverPath"})
   @BeforeClass
-  public void beforeMethod(String baseUrl) {
-	  System.setProperty("webdriver.chrome.driver", "/home/opendatalabs/tools/selenium/chromedriver");
+  public void beforeMethod(String baseUrl, String driverPath) {
+	  System.setProperty("webdriver.chrome.driver", driverPath);
 	  driver =new ChromeDriver();
 	  driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 	  Dimension d = new Dimension(768,1024);
