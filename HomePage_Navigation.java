@@ -17,13 +17,14 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
 public class HomePage_Navigation {
 	WebDriver driver;
-	String baseUrl = "http://cmsdevmerge.ucsd.edu/";
+	//String baseUrl = "https://extension.ucsd.edu/";
 	
 	@Test
 	  public void Menu_CP() {
@@ -35,7 +36,7 @@ public class HomePage_Navigation {
 		//  driver.findElement(By.xpath("//ul[@id='main-menu']/li/a")).click();
 		 
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/courses-and-programs";
+		  String ExpectedCurrentURL = "https://extension.ucsd.edu/courses-and-programs";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }
 	
@@ -48,7 +49,7 @@ public class HomePage_Navigation {
 		  menu.click();
 	
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/news-and-events";
+		  String ExpectedCurrentURL = "https://extension.ucsd.edu/news-and-events";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }
 	
@@ -61,7 +62,7 @@ public class HomePage_Navigation {
 		  menu.click();
 	
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/community-and-research";
+		  String ExpectedCurrentURL = "https://extension.ucsd.edu/community-and-research";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }
 	
@@ -74,7 +75,7 @@ public class HomePage_Navigation {
 		  menu.click();
 	
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/student-resources";
+		  String ExpectedCurrentURL = "https://extension.ucsd.edu/student-resources";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }
 	
@@ -87,7 +88,7 @@ public class HomePage_Navigation {
 		  menu.click();
 	
 		  String CurrentURL = driver.getCurrentUrl();
-		  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/about-extension";
+		  String ExpectedCurrentURL = "https://extension.ucsd.edu/about-extension";
 		  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
 	  }
 	
@@ -96,7 +97,7 @@ public class HomePage_Navigation {
     public void IP_Nav() {
 	  driver.findElement(By.xpath("html/body/form/main/div[1]/div/div[2]/a")).click();
 	  String CurrentURL = driver.getCurrentUrl();
-	  String ExpectedCurrentURL = "http://cmsdevmerge.ucsd.edu/international-programs/home";
+	  String ExpectedCurrentURL = "https://extension.ucsd.edu/international-programs/home";
 	  Assert.assertEquals(CurrentURL, ExpectedCurrentURL);
   }
  
@@ -110,8 +111,9 @@ public class HomePage_Navigation {
   	  Assert.assertEquals(BreadCrumb, expectedBreadCrumb);
     }	   
   
+    @Parameters("baseUrl")
     @BeforeMethod
-     public void beforeMethod() {
+     public void beforeMethod(String baseUrl) {
 	  System.setProperty("webdriver.chrome.driver", "/home/opendatalabs/tools/selenium/chromedriver");
 	  driver =new ChromeDriver();
 	  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);

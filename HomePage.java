@@ -12,14 +12,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 
 public class HomePage {
 	WebDriver driver;
-	String baseUrl = "http://cmsdevmerge.ucsd.edu/";
-	
+	//String baseUrl = "https://extension.ucsd.edu/";
+  
+  
   @Test
   public void PageTitle() {
 	  String expectedTitle = "UC San Diego Extension | Continuing Education | UCSD Extension";
@@ -55,9 +57,9 @@ public class HomePage {
 	  Assert.assertEquals(IPctaText, expectedCPctaText);
   }
   
-  
+  @Parameters("baseUrl")
   @BeforeClass
-  public void beforeMethod() {
+  public void beforeMethod(String baseUrl) {
 	  System.setProperty("webdriver.chrome.driver", "/home/opendatalabs/tools/selenium/chromedriver");
 	  driver =new ChromeDriver();
 	  driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
