@@ -1,11 +1,16 @@
 package UCSD;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -111,16 +116,33 @@ public class HomePage_Navigation {
   	  Assert.assertEquals(BreadCrumb, expectedBreadCrumb);
     }	   
   
-    @Parameters("baseUrl")
+    @Parameters({"browser", "baseUrl", "driverPath"})
     @BeforeMethod
-     public void beforeMethod(String baseUrl) {
-	  System.setProperty("webdriver.chrome.driver", "/home/opendatalabs/tools/selenium/chromedriver");
-	  driver =new ChromeDriver();
-	  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-	  //Dimension d = new Dimension(768,1024);
-	  //driver.manage().window().setSize(d);
-	  driver.get(baseUrl);
-  }
+    public void startUp(String browser, String baseUrl, String driverPath) throws MalformedURLException {
+  	  try {
+  			if (browser.equalsIgnoreCase("firefox")) {
+  				System.setProperty("webdriver.gecko.driver",driverPath);
+  				driver = new FirefoxDriver();
+  				File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+  				//DesiredCapabilities capability = DesiredCapabilities.firefox();
+  				//capability.setBrowserName("firefox");
+  				//driver = new RemoteWebDriver(new URL("http://192.168.0.102:5566/wd/hub"), capability);
+  				driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+  				driver.get(baseUrl);
+  			} else if (browser.equalsIgnoreCase("chrome")) {
+  				System.setProperty("webdriver.chrome.driver",driverPath);
+  				driver =new ChromeDriver();
+  				//DesiredCapabilities capability = DesiredCapabilities.chrome();
+  				//capability.setBrowserName("chrome");
+  				//driver = new RemoteWebDriver(new URL("http://192.168.0.101:5555/wd/hub"), capability);
+  				driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+  				driver.get(baseUrl);
+  			} 
+  		
+  		} catch (WebDriverException e) {
+  			System.out.println(e.getMessage());
+  		}
+    }
 
     @AfterMethod
      public void afterMethod() {

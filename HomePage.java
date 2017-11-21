@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -28,7 +29,6 @@ public class HomePage {
 	WebDriver driver;
 	//String baseUrl = "https://extension.ucsd.edu/";
   
-  
   @Test
   public void PageTitle() {
 	  String expectedTitle = "UC San Diego Extension | Continuing Education | UCSD Extension";
@@ -36,6 +36,7 @@ public class HomePage {
 	  actualTitle = driver.getTitle();
 	  Assert.assertEquals(actualTitle, expectedTitle);
   }
+  
   @Test
   	public void Hero_size() {
 	  int height = driver.findElement(By.xpath("html/body/form/main/section[1]/div/div/div/div[1]")).getSize().getHeight();
@@ -59,7 +60,6 @@ public class HomePage {
 	Assert.assertEquals(SearchBar, expectedSearchBar);
   } 
   
-
   
   @Test
   public void IPctaText() {
@@ -70,7 +70,7 @@ public class HomePage {
   
   @Parameters({"browser", "baseUrl", "driverPath"})
   @BeforeClass
-  public void startUp(String browser, String baseUrl, String driverPath) {
+  public void startUp(String browser, String baseUrl, String driverPath) throws MalformedURLException {
 	  
 	  try {
 			if (browser.equalsIgnoreCase("firefox")) {
@@ -78,19 +78,27 @@ public class HomePage {
 				driver = new FirefoxDriver();
 				//DesiredCapabilities capability = DesiredCapabilities.firefox();
 				//capability.setBrowserName("firefox");
-				//try {
-					//driver = new RemoteWebDriver(new URL("http://172.17.0.1:5555/wd/hub"), capability);
-				//} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					//e.printStackTrace();
-				//}
+				//driver = new RemoteWebDriver(new URL("http://192.168.0.102:5566/wd/hub"), capability);
 				driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 				Dimension d = new Dimension(700,1024);
 				driver.manage().window().setSize(d);
 				driver.get(baseUrl);
+			} else if (browser.equalsIgnoreCase("IE")) {
+				System.setProperty("webdriver.ie.driver",driverPath);
+				driver =new InternetExplorerDriver();
+				//DesiredCapabilities capability = DesiredCapabilities.internetExplorer();
+				//capability.setBrowserName("internetExplorer");
+				//driver = new RemoteWebDriver(new URL("http://192.168.0.101:5555/wd/hub"), capability);
+				driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+				//Dimension d = new Dimension(768,1024);
+				//driver.manage().window().setSize(d);
+				driver.get(baseUrl);
 			} else if (browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",driverPath);
 				driver =new ChromeDriver();
+				//DesiredCapabilities capability = DesiredCapabilities.chrome();
+				//capability.setBrowserName("chrome");
+				//driver = new RemoteWebDriver(new URL("http://192.168.0.101:5555/wd/hub"), capability);
 				driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
 				Dimension d = new Dimension(768,1024);
 				driver.manage().window().setSize(d);
