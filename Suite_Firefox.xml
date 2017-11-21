@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="UCSD test Suite - Firefox Browser">
+<parameter name="baseUrl" value="https://extension.ucsd.edu/"/>
+<parameter name="driverPath" value="/usr/local/bin/geckodriver"/>
+<parameter name="browser" value="firefox"/>
+
+  <test name="Home Page - Tests">
+      <classes>
+        <class name="UCSD.HomePage" />
+        <!--<class name="UCSD.HomePage_Navigation" /> -->
+      </classes>
+   </test>
+   <!--<test name="AOI Landing Page - Tests">
+      <classes>
+        <class name="UCSD.CPhome" />
+        <class name="UCSD.CPhome_AOI_Navigation" />
+      </classes>
+   </test>
+   <test name="AOI Tests">
+     <classes>
+      <class name="UCSD.AOI_ArtsHumanities_Navigation" />
+      <class name="UCSD.AOI_ArtsHumanities" />
+      <class name="UCSD.AOI_BusinessLeadership_Navigation" />
+      <class name="UCSD.AOI_BusinessLeadership" />
+      <class name="UCSD.AOI_DataAnalysisAndMathematics_Navigation" />
+      <class name="UCSD.AOI_DataAnalysisAndMathematics" />
+      <class name="UCSD.AOI_DegreeCredit_Navigation" />
+      <class name="UCSD.AOI_DegreeCredit" />
+      <class name="UCSD.AOI_DigitalArts_Navigation" />
+      <class name="UCSD.AOI_DigitalArts" />
+      <class name="UCSD.AOI_Education_Navigation" />
+      <class name="UCSD.AOI_Education" />
+      <class name="UCSD.AOI_EnvironmentSustainability_Navigation" />
+      <class name="UCSD.AOI_EnvironmentSustainability" />
+      <class name="UCSD.AOI_Healthcare_Navigation" />
+      <class name="UCSD.AOI_Healthcare" />
+      <class name="UCSD.AOI_Languages_Navigation" />
+      <class name="UCSD.AOI_Languages" />
+      <class name="UCSD.AOI_Law_Navigation" />
+      <class name="UCSD.AOI_Law" />
+      <class name="UCSD.AOI_PreCollege" />
+      <class name="UCSD.AOI_Sciences" />
+      <class name="UCSD.AOI_Technology" />
+      <class name="UCSD.AOI_Writing" />
+    </classes>
+   </test>
+   <test name="Category Tests">
+    <classes>
+      <class name="UCSD.Cat_AccountingandTaxation" />
+      <class name="UCSD.Cat_AdvancedLegalEducation" />
+      <class name="UCSD.Cat_ArtHistory" />
+      <class name="UCSD.Cat_BioinformaticsandBiostatistics" />
+      <class name="UCSD.Cat_Biology_Fundamentals" />
+      <class name="UCSD.Cat_BrewingCulinaryArts" />
+      <class name="UCSD.Cat_BusinessIntelligence" />
+      <class name="UCSD.Cat_CAD_BIM" />
+      <class name="UCSD.Cat_ChildrensBookWritingIllustration" />
+      <class name="UCSD.Cat_ClinicalTrialsRegulatoryAffairs" />
+      <class name="UCSD.Cat_CommissionApprovedPrograms" />
+      <class name="UCSD.Cat_CommunicationsEngineering" />
+      <class name="UCSD.Cat_CollegeCredit" />
+      <class name="UCSD.Cat_ConcurrentOpenEnrollment" />
+      <class name="UCSD.Cat_Copyediting" />
+      <class name="UCSD.Cat_CounselingandBehavioralSciences" />
+      <class name="UCSD.Cat_CreativeWriting" />
+      <class name="UCSD.Cat_DataScience" />
+      <class name="UCSD.Cat_DataStorageManagement" />
+      <class name="UCSD.Cat_DiagnosticsMedicalTechnology" />
+      <class name="UCSD.Cat_EAPD" />
+      <class name="UCSD.Cat_Electrical_Engineering" />
+      <class name="UCSD.Cat_EmbeddedEngineering" />
+      <class name="UCSD.Cat_EngineeringDesign" />
+      <class name="UCSD.Cat_EnvironmentalManagement" />
+      <class name="UCSD.Cat_FacilitiesEngineeringandManagement" />
+      <class name="UCSD.Cat_FinanceandBusinessAnalysis" />
+      <class name="UCSD.Cat_FineArt" />
+      <class name="UCSD.Cat_FitnessInstructionNutrition" />
+      <class name="UCSD.Cat_ForeignLanguages" />
+      <class name="UCSD.Cat_FundamentalsHealthcare" />
+      <class name="UCSD.Cat_GraduatePrograms" />
+      <class name="UCSD.Cat_GraphicWebDesign" />
+      <class name="UCSD.Cat_HealthcareInformatics" />
+      <class name="UCSD.Cat_Humanities" />
+      <class name="UCSD.Cat_HumanResourceManagement" />
+      <class name="UCSD.Cat_Illustration" />
+      <class name="UCSD.Cat_Industrial_Biotechnology" />
+      <class name="UCSD.Cat_IntellectualProperty" />
+      <class name="UCSD.Cat_IT_OperationsManagement" />
+      <class name="UCSD.Cat_K_12" />
+      <class name="UCSD.Cat_LactationPerinatalEducation" />
+      <class name="UCSD.Cat_LeadershipDevelopment" />
+      <class name="UCSD.Cat_Marketing" />
+      <class name="UCSD.Cat_MedicalCoding" />
+      <class name="UCSD.Cat_MedicalCommunication" />
+      <class name="UCSD.Cat_MobileApplicationsProgrammingDesign" />
+      <class name="UCSD.Cat_NursingClinicalProfessionals" />
+      <class name="UCSD.Cat_OrganizationalManagement" />
+      <class name="UCSD.Cat_ParalegalStudies" />
+      <class name="UCSD.Cat_PerformingArts" />
+      <class name="UCSD.Cat_PharmaceuticalOperations" />
+      <class name="UCSD.Cat_Photography" />
+      <class name="UCSD.Cat_ProfessionalDevelopment" />
+      <class name="UCSD.Cat_ProfessionalEngineeringReviewsAdvancedStudies" />
+      <class name="UCSD.Cat_ProgrammingScriptingLanguages" />
+      <class name="UCSD.Cat_ProjectManagementandProcessImprovement" />
+      <class name="UCSD.Cat_SallyRide_HighSchool" />
+      <class name="UCSD.Cat_STEM" />
+      <class name="UCSD.Cat_StudioDecorativeArts" />
+      <class name="UCSD.Cat_Supporting_K_12_Students" />
+      <class name="UCSD.Cat_Sustainability" />
+      <class name="UCSD.Cat_SystemAdministrationNetworkingSecurity" />
+      <class name="UCSD.Cat_SystemsEngineering" />
+      <class name="UCSD.Cat_TeachingStrategiesforAdults" />
+      <class name="UCSD.Cat_TechnicalCommunication" />
+      <class name="UCSD.Cat_TEFL" />
+      <class name="UCSD.Cat_TestPreparation" />
+      <class name="UCSD.Cat_TherapeuticDiscoveryDevelopment" />
+      <class name="UCSD.Cat_TranslationInterpretation" />
+      <class name="UCSD.Cat_UrbanPlanningPreservation" />
+      <class name="UCSD.Cat_UX_Design" />
+      <class name="UCSD.Cat_VideoEditing" />
+      <class name="UCSD.Cat_WebTechnologiesDesign" />
+    </classes>
+   </test>
+   <test name="News and Events- Tests">
+    <classes>
+      <class name="UCSD.NEHomePage" />
+      <class name="UCSD.EventCalendar" />
+      <class name="UCSD.ExtensionBlog" />
+      <class name="UCSD.SocialMediaDirectory" />
+      <class name="UCSD.MediaRoom" />
+      <class name="UCSD.IntheNews" />
+    </classes>
+   </test>
+   <test name="Community and Research - Tests">
+    <classes>
+      <class name="UCSD.CRHomePage" />
+      <class name="UCSD.UCTV_UCSD" />
+      <class name="UCSD.CenterforResearch" />
+      <class name="UCSD.ServingtheCommunity" />
+      <class name="UCSD.GlobalConnect" />
+      <class name="UCSD.CollaborateWithUs" />
+      <class name="UCSD.TeachforUs" />
+      <class name="UCSD.CustomTrainingPrograms" />
+      <class name="UCSD.PartnerWithUs" />
+      <class name="UCSD.PublicEventsLectures" />
+    </classes>
+   </test>
+   <test name="Student Resources - Tests">
+    <classes>
+      <class name="UCSD.SRHomePage" />
+      <class name="UCSD.CareerResources" />
+      <class name="UCSD.IntStudentServices" />
+      <class name="UCSD.AcademicInformation" />
+      <class name="UCSD.RegistrationPoliciesProcedures" />
+      <class name="UCSD.VeteransEducationBenefits" />
+      <class name="UCSD.TuitionFees" />
+      <class name="UCSD.FinancialResources" />
+      <class name="UCSD.ServicesforStudentswithDisabilities" />
+      <class name="UCSD.AdditionalServices" />
+      <class name="UCSD.StudentRightsandResponsibilities" />
+      <class name="UCSD.FormsLibrary" />
+    </classes>
+   </test>
+   <test name="About Extension - Tests">
+    <classes>
+      <class name="UCSD.AboutExtension" />
+      <class name="UCSD.ContactUs" />
+      <class name="UCSD.Instructors" />
+      <class name="UCSD.LocationsMapsTransportation" />
+      <class name="UCSD.SanDiego" />
+    </classes>
+   </test>
+   <test name="International Programs - Tests">
+    <classes>
+      <class name="UCSD.IP_Home" />
+      <class name="UCSD.IP_Home_Navigation" />
+      <class name="UCSD.IP_CP_Navigation" />
+      <class name="UCSD.IP_HSL_Navigation" />
+      <class name="UCSD.IP_HTE_Navigation" />
+      <class name="UCSD.IP_DF_Navigation" />
+      <class name="UCSD.IP_About_Navigation" />
+      <class name="UCSD.IP_CP_ELI_Navigation" />
+      <class name="UCSD.IP_CP_CertPgm_Navigation" />
+      <class name="UCSD.IP_CP_UCP_Navigation" />
+      <class name="UCSD.IP_HSL_Housing_Navigation" />
+    </classes>
+   </test> -->
+  </suite>	
